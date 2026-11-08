@@ -76,10 +76,6 @@ Para levar o progresso de um lugar para outro, use o botão **Dados**, no topo:
 - **Importar:** escolha o arquivo ou cole o texto e confirme. A importação **substitui** os dados atuais do navegador.
 - O backup só inclui as chaves do planner (`rotina-*` e `mapa-*`). Ele contém suas anotações, então não o suba para um repositório público.
 
-## Privacidade
-
-Este planner contém informações pessoais (rotina, estudos, nomes de empresas e de pessoas de processos seletivos). Se for publicar, prefira um repositório **privado** ou revise os textos antes de torná-lo público. O GitHub Pages em repositório privado depende do seu plano do GitHub.
-
 ## Fontes
 
 Usa Fraunces e Work Sans pelo Google Fonts. Sem conexão, o navegador usa as fontes padrão do sistema.
