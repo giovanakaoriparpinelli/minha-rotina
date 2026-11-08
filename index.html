@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Minha rotina · gigi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand">gigi <small>rotina + primeira vaga</small></div>
+    <div class="top-actions">
+      <button class="theme" type="button" id="backupBtn" aria-haspopup="dialog">Dados</button>
+      <button class="theme" data-act="theme" aria-label="Alternar tema claro/escuro">Tema</button>
+    </div>
+  </div>
+  <div class="hero">
+    <h1 id="greet">Oi</h1>
+    
+  </div>
+  <div class="tabs" id="tabs" role="tablist"></div>
+  <main id="view"></main>
+<div id="mapaRoot" hidden>
+
+  <p class="mlead">Seis etapas, cerca de 24 semanas até a primeira vaga. Marque cada estação quando terminar: o que você marcar fica salvo neste navegador.</p>
+
+  <div id="tabsAnchor"></div>
+  <nav class="mtabs" id="tabsNav" aria-label="Seções do mapa">
+    <a href="#inicio" data-tab="inicio">Visão geral</a>
+    <a href="#etapas" data-tab="etapas">Etapas</a>
+    <a href="#estudos" data-tab="estudos">Estudos</a>
+    <a href="#mercado" data-tab="mercado">Mercado</a>
+    <a href="#vagas" data-tab="vagas">Vagas-alvo</a>
+    <a href="#textos" data-tab="textos">Textos</a>
+    <a href="#entrevistas" data-tab="entrevistas">Entrevistas</a>
+    <a href="#rotina" data-tab="rotina">Dia de estudo</a>
+  </nav>
+  <div id="panels">
+  <section class="tabpanel" data-tab="inicio">
+  <div class="mtop">
+    <div class="panel total">
+      <svg class="mring" viewBox="0 0 100 100" role="img" aria-label="Progresso geral">
+        <circle class="bg" cx="50" cy="50" r="42"></circle>
+        <circle class="fg" id="ringFg" cx="50" cy="50" r="42" transform="rotate(-90 50 50)" stroke-dasharray="0 264"></circle>
+        <text x="50" y="58" text-anchor="middle" id="ringTxt">0%</text>
+      </svg>
+      <div><strong id="totalLabel">0 de 0 estações</strong><span>Progresso de toda a jornada</span></div>
+    </div>
+    <div class="panel next">
+      <h2>Seu próximo passo</h2>
+      <p id="nextTxt">—</p>
+      <a id="nextLink" href="#etapa-0">Ir para a etapa</a>
+    </div>
+  </div>
+
+  <nav class="minimap" aria-label="Visão geral das etapas"><ol id="minimap"></ol></nav>
+
+  <h2 class="section-title">Onde está cada coisa</h2>
+  <div class="hub">
+    <a href="#etapas" style="--sc:var(--c0)"><b>Etapas</b><span>As seis etapas com todas as tarefas para marcar.</span></a>
+    <a href="#estudos" style="--sc:var(--c2)"><b>Estudos</b><span>Um caderno para cada estação do mapa, com datas de início e fim, links e anotações.</span></a>
+    <a href="#mercado" style="--sc:var(--c1)"><b>Mercado</b><span>O que as vagas pediram: tecnologias, QA, suporte e implantação.</span></a>
+    <a href="#vagas" style="--sc:var(--c3)"><b>Vagas-alvo</b><span>Perfis de vaga, a vaga aberta confirmada e o que estudar primeiro.</span></a>
+    <a href="#textos" style="--sc:var(--c4)"><b>Textos</b><span>Apresentações e respostas prontas, com botão de copiar.</span></a>
+    <a href="#rotina" style="--sc:var(--c5)"><b>Dia de estudo</b><span>Seu dia de estudo e o que fazer se o resultado não vem.</span></a>
+  </div>
+
+  <div class="mnote">Os prazos são estimativas. Se uma etapa atrasar, mova o cronograma e avance só quando o marco da etapa estiver cumprido. Ninguém garante vaga: o que você controla é o volume de candidaturas, a qualidade dos projetos e a preparação.</div>
+
+  </section>
+
+  <section class="tabpanel" data-tab="etapas">
+  <nav class="pills" id="stagePills" aria-label="Escolher etapa"></nav>
+  <main id="stages"></main>
+
+  </section>
+
+  <section class="tabpanel" data-tab="estudos">
+  <h2 class="section-title" id="estudos-topo">Estudos</h2>
+  <p class="sub">Um caderno para cada estação do mapa, organizado por etapa. Em cada um você registra a data de início e de fim do estudo, os links que usou e suas anotações.</p>
+  <nav class="pills" id="estPills" aria-label="Etapas do mapa"></nav>
+  <div id="estStage"></div>
+  </section>
+  <script src="js/estudos.js"></script>
+
+  <section class="tabpanel" data-tab="mercado">
+  <h2 class="section-title" id="mk">O que as vagas pediram</h2>
+  <p class="sub">Levantamento de 01/11/2026: 33 anúncios de estágio, trainee e júnior, 26 deles com requisitos informados. A amostra é pequena e serve como indicação.</p>
+  <div class="panel market" role="group" aria-labelledby="mk">
+    <div class="mrow"><b>Git</b><div class="mtrack"><i style="width:27%;background:var(--c1)"></i></div><span class="n">7 de 26</span></div>
+    <div class="mrow"><b>SQL</b><div class="mtrack"><i style="width:27%;background:var(--c1)"></i></div><span class="n">7 de 26</span></div>
+    <div class="mrow"><b>APIs (REST)</b><div class="mtrack"><i style="width:27%;background:var(--c1)"></i></div><span class="n">7 de 26</span></div>
+    <div class="mrow"><b>Ecossistema JavaScript (JS, React, Node)</b><div class="mtrack"><i style="width:35%;background:var(--c0)"></i></div><span class="n">9 de 26</span></div>
+    <div class="mrow"><b>Java</b><div class="mtrack"><i style="width:19%;background:var(--c0)"></i></div><span class="n">5 de 26</span></div>
+    <div class="mrow"><b>Python</b><div class="mtrack"><i style="width:19%;background:var(--c0)"></i></div><span class="n">5 de 26</span></div>
+    <div class="mrow"><b>C# ou .NET</b><div class="mtrack"><i style="width:12%;background:var(--c0)"></i></div><span class="n">3 de 26</span></div>
+    <div class="mrow"><b>Inglês citado no anúncio</b><div class="mtrack"><i style="width:12%;background:var(--c5)"></i></div><span class="n">3 de 26</span></div>
+  </div>
+  <ul class="legend">
+    <li><i style="background:var(--c1)"></i><div><b>Git, SQL e APIs valem para qualquer linguagem.</b> <span>Estão nas etapas 0 e 1 do mapa.</span></div></li>
+    <li><i style="background:var(--c0)"></i><div><b>JavaScript lidera, com Java e Python logo atrás.</b> <span>TypeScript quase não apareceu nas vagas de entrada, então fica para depois.</span></div></li>
+    <li><i style="background:var(--c4)"></i><div><b>QA de entrada existe.</b> <span>A segunda rodada achou 13 anúncios de QA, 12 deles remotos. A primeira só tinha vagas de nível pleno.</span></div></li>
+    <li><i style="background:var(--c3)"></i><div><b>Estágio e trainee remotos foram 16 dos 33 anúncios.</b> <span>É o foco das candidaturas da etapa 2.</span></div></li>
+  </ul>
+
+  <h2 class="section-title" id="mk2">QA, suporte e implantação</h2>
+  <p class="sub">Segunda rodada, em 01/11/2026: 29 anúncios. A barra mostra a parte de cada área que é remota.</p>
+  <div class="panel market" role="group" aria-labelledby="mk2">
+    <div class="mrow"><b>QA</b><div class="mtrack"><i style="width:92%;background:var(--c4)"></i></div><span class="n">12 de 13 remotas</span></div>
+    <div class="mrow"><b>Suporte</b><div class="mtrack"><i style="width:38%;background:var(--c3)"></i></div><span class="n">3 de 8 remotas</span></div>
+    <div class="mrow"><b>Implantação</b><div class="mtrack"><i style="width:38%;background:var(--c2)"></i></div><span class="n">3 de 8 remotas</span></div>
+  </div>
+  <ul class="legend">
+    <li><i style="background:var(--c4)"></i><div><b>QA pede testes funcionais, Jira, Postman e SQL.</b> <span>Oito dos 13 anúncios são de estágio. Três vêm de uma busca de 2025 e podem estar encerrados.</span></div></li>
+    <li><i style="background:var(--c3)"></i><div><b>Suporte remoto de entrada é raro.</b> <span>Os anúncios pedem atendimento, sistema de chamados e SQL básico.</span></div></li>
+    <li><i style="background:var(--c2)"></i><div><b>Implantação concentra os estágios em São Paulo.</b> <span>Os remotos são de nível júnior e pedem relacionamento com cliente e levantamento de requisitos.</span></div></li>
+  </ul>
+
+  </section>
+
+  <section class="tabpanel" data-tab="vagas">
+  <h2 class="section-title" id="candidaturas">Candidaturas</h2>
+  <p class="sub">Sua planilha de candidaturas, agora aqui. Preencha direto nas células, escolha Status e Retorno nas listas e adicione uma linha por vaga enviada, no mesmo dia. O que você preencher fica salvo neste navegador.</p>
+  <div class="cand-sum" id="cdSum"></div>
+  <p class="cand-read" id="cdRead"></p>
+  <div class="cand-tool">
+    <button type="button" class="cbtn" id="cdAdd">Adicionar candidatura</button>
+    <button type="button" class="cbtn ghost" id="cdCopy">Copiar como tabela</button>
+    <button type="button" class="cbtn ghost" id="cdUndo" hidden>Desfazer exclusão</button>
+    <label>Mostrar <select id="cdFilter" aria-label="Filtrar por status"></select></label>
+    <label>Meta <input type="number" min="1" id="cdMeta" aria-label="Meta de candidaturas"></label>
+  </div>
+  <div class="cand-head" aria-hidden="true"><span>Empresa</span><span>Vaga</span><span>Data</span><span>Link</span><span>Status</span><span>Retorno</span><span></span></div>
+  <div id="cdList"></div>
+  <ol class="order">
+    <li><b>Marque “Sem retorno” depois de cerca de 15 dias sem resposta.</b> <span>E passe o Status para Encerrada.</span></li>
+    <li><b>Revise a leitura rápida a cada duas semanas.</b> <span>Ela só faz sentido a partir de cerca de 40 candidaturas. Meta do plano: 5 a 10 por dia útil.</span></li>
+    <li><b>“Copiar como tabela” cola direto no Excel ou no Google Planilhas.</b></li>
+  </ol>
+  <script src="js/vagas.js"></script>
+
+  <h2 class="section-title" id="alvos">Perfis de vaga-alvo</h2>
+  <p class="sub">Os três anúncios abaixo saíram do ar quando você tentou abrir. Os requisitos continuam valendo como modelo do que as empresas pedem em cada área, e definem o que estudar primeiro. Troque por vagas abertas quando encontrar.</p>
+  <div class="targets">
+    <article class="mtcard" style="--sc:var(--c0)">
+      <h3>KIS Solutions</h3>
+      <p class="role">Software Developer Intern. Remoto, para quem mora na América Latina.</p>
+      <dl>
+        <div><dt>O que pedem</dt><dd>Base em lógica de programação. Alguma experiência, que pode vir de estágio, projetos pessoais ou acadêmicos. Python e React, em equipes internacionais.</dd></div>
+        <div><dt>O que falta para você</dt><dd>React, Python, inglês falado e projetos publicados.</dd></div>
+        <div><dt>Atenção</dt><dd>Anúncio fora do ar. Pedia 30 a 40 horas por semana, o que pesa junto com a faculdade.</dd></div>
+      </dl>
+    </article>
+    <article class="mtcard" style="--sc:var(--c4)">
+      <h3>Nexti</h3>
+      <p class="role">Estagiário de QA. Remoto, meio período.</p>
+      <dl>
+        <div><dt>O que pedem</dt><dd>Estar cursando graduação em TI, entender requisitos e cenários de teste e trabalhar com desenvolvedores em squads ágeis. Jira, Postman, SQL e Selenium aparecem como habilidades.</dd></div>
+        <div><dt>O que falta para você</dt><dd>Casos de teste, relato de bug, Jira e Postman. SQL e experiência com processos você já tem.</dd></div>
+        <div><dt>Atenção</dt><dd>Anúncio fora do ar. Vale conferir de vez em quando a página de carreiras da Nexti.</dd></div>
+      </dl>
+    </article>
+    <article class="mtcard" style="--sc:var(--c3)">
+      <h3>ASC Solutions</h3>
+      <p class="role">Estagiário em Desenvolvimento Web/Mobile. 100% remoto.</p>
+      <dl>
+        <div><dt>O que pedem</dt><dd>Conhecimento básico em HTML, CSS, JavaScript, C#, .NET Core e Angular. Oferece vale-refeição, seguro de vida e 13º.</dd></div>
+        <div><dt>O que falta para você</dt><dd>JavaScript, C# e Angular. HTML e CSS você já tem, e C é uma boa porta para C#.</dd></div>
+        <div><dt>Atenção</dt><dd>Anúncio fora do ar. A stack é Microsoft, diferente da sua trilha, mas o nível pedido era básico.</dd></div>
+      </dl>
+    </article>
+  </div>
+
+  <div class="mnote" style="margin-top:18px"><b>Aberta e confirmada em 01/11/2026: Visagio (v(dev)), Estágio de Desenvolvedor(a) de Software, remoto.</b> É um banco de talentos: sua inscrição fica guardada para as próximas vagas. Pede graduação a partir do 3º período, aceita pessoas com ou sem experiência e não exige uma stack específica, só conhecimento básico em uma linguagem de programação. <a href="https://vdev.gupy.io/jobs/11357264?jobBoardSource=gupy_public_page" target="_blank" rel="noopener" style="color:var(--ink)">Abrir a página da vaga</a></div>
+
+  <h2 class="section-title" id="ordem">O que estudar primeiro</h2>
+  <p class="sub">Ordem que sai dos requisitos das três vagas.</p>
+  <ol class="order">
+    <li><b>HTML, CSS e JavaScript básico.</b> <span>A ASC pede, e o React da KIS depende disso. Etapa 1.</span></li>
+    <li><b>Git e um projeto público.</b> <span>A KIS aceita projetos pessoais como experiência. Etapa 1.</span></li>
+    <li><b>Teste de software, Jira e Postman.</b> <span>Pedidos pela Nexti, com uma semana de estudo. Etapa 1.</span></li>
+    <li><b>SQL, com JOIN.</b> <span>A Nexti lista, e você já tem a base. Etapa 1.</span></li>
+    <li><b>React.</b> <span>Pedido pela KIS. Etapa 3.</span></li>
+    <li><b>Python de iniciante.</b> <span>Também pedido pela KIS. Etapa 3.</span></li>
+    <li><b>Inglês falado.</b> <span>A KIS trabalha com equipes internacionais. Etapas 2 e 4.</span></li>
+  </ol>
+  <p class="sub" style="margin-top:14px">C# e Angular ficam para depois: a ASC pede só nível básico, então vale se candidatar sem estudá-los antes.</p>
+
+  </section>
+
+  <section class="tabpanel" data-tab="textos">
+  <h2 class="section-title" id="textos">Textos para as inscrições</h2>
+  <p class="sub">Troque os campos entre colchetes direto na caixa e clique em Copiar. O que você editar fica salvo neste navegador.</p>
+  <div id="textosBox"></div>
+  <ol class="order">
+    <li><b>Troque todos os colchetes e releia uma vez.</b> <span>O contador abaixo de cada caixa mostra quantos faltam.</span></li>
+    <li><b>Copie palavras do anúncio só de tecnologias que você conhece.</b> <span>Na entrevista perguntam sobre o que está no texto.</span></li>
+    <li><b>Anote na planilha de candidaturas qual versão você enviou.</b></li>
+  </ol>
+  <script src="js/textos.js"></script>
+
+  </section>
+
+  <section class="tabpanel" data-tab="entrevistas">
+  <h2 class="section-title" id="entrevistas">Entrevistas</h2>
+  <p class="sub">Uma aba para cada entrevista, porque as vagas e o preparo são diferentes. O que você marcar e escrever fica salvo neste navegador.</p>
+
+  <div class="ivtabs" role="tablist" aria-label="Escolha a entrevista">
+    <button type="button" role="tab" data-sub="concert" aria-selected="true">Concert Technologies · seg 09/11, 9h30</button>
+    <button type="button" role="tab" data-sub="grownt" aria-selected="false">Grownt Tech · ter 10/11, 10h</button>
+  </div>
+  <div class="ivsub" data-sub="concert" role="tabpanel">
+  <span id="entrevista-concert"></span>
+  <div class="ivcard">
+    <b>025/2026 (LAB) · Estágio em IA e Desenvolvimento Full Stack · Concert Technologies S.A.</b>
+    <span><b style="font-size:1rem">Segunda, 09 nov 2026, 9h30</b> (horário de Brasília)</span>
+    <span>Remoto · 6 horas diárias · Candidatura em 01/11/2026 · Etapa 3 de 6 (Entrevista)</span>
+  </div>
+
+  <div class="iv-grid iv-grid2" style="margin-top:14px">
+  <div class="iv-col">
+    <label class="tip" for="cvWho"><b>Quem entrevista</b></label>
+    <input class="cvin" id="cvWho" placeholder="Nome e cargo, se souber">
+  </div>
+  <div class="iv-col">
+    <label class="tip" for="cvLink"><b>Link da reunião e duração</b></label>
+    <input class="cvin" id="cvLink" placeholder="Cole o link do convite e a duração">
+  </div>
+  </div>
+
+  <div class="iv-grid">
+  <div class="iv-col">
+  <h3 class="sub-h">O que esperar</h3>
+  <p class="sub">A vaga não descreve esta etapa, então vale se preparar para uma conversa de perfil e de logística. Os pontos mais prováveis: quem é você, por que esta vaga, se você tem disponibilidade para 6 horas por dia em trabalho remoto, como você se organiza sozinha, o que já conhece de Angular, Git e lógica, e como se sentiria começando por rotulação de imagens. O processo ainda tem um desafio técnico depois desta entrevista, então vale estar pronta para falar do que você sabe e de como aprende.</p>
+
+  <h3 class="sub-h">Seu plano até segunda</h3>
+  <ol class="order">
+    <li><b>Sexta: pesquisar e escrever.</b> <span>30 minutos no site e no LinkedIn da Concert Technologies. Preencha os colchetes das respostas abaixo, principalmente Angular, Git e o que falta de curso.</span></li>
+    <li><b>Sábado: treinar em voz alta.</b> <span>Grave a apresentação de 90 segundos e duas respostas. Ouça e corte o que ficou longo. Revise o quadro de estudo rápido.</span></li>
+    <li><b>Domingo: simulação completa.</b> <span>Peça para alguém fazer o papel de recrutador, com perguntas fora de ordem. Tenha um projeto pessoal ou da faculdade aberto no Git para mostrar, se pedirem.</span></li>
+    <li><b>Segunda: entrevista às 9h30.</b> <span>Às 9h15 teste câmera, áudio, internet e luz. Deixe a vaga, água e caderno à mão.</span></li>
+  </ol>
+  <p class="sub">Terça às 10h você ainda tem a entrevista da Grownt Tech. O que você treinar para esta, como a apresentação e a disponibilidade, vale para as duas.</p>
+
+  <h3 class="sub-h">Seu perfil comportamental (Sólides)</h3>
+  <p class="sub">Executor Planejador: 27% Executor, 27% Planejador, 25% Comunicador e 22% Analista. Se perguntarem, use isso a seu favor: você age com iniciativa e também planeja e se organiza, o que combina com o pedido de autonomia no trabalho remoto. Dê um exemplo real de cada coisa, em vez de só citar o resultado.</p>
+  </div>
+  <div class="iv-col iv-side">
+  <h3 class="sub-h">Checklist</h3>
+  <ul class="ivlist" id="cvChecks"></ul>
+  </div>
+  </div>
+
+  <h3 class="sub-h">A Concert em 1 minuto (pesquisa)</h3>
+  <p class="sub">Fontes: site da Concert (grupo, Lab, VERA, xOMNI IA, Trabalhe Conosco), Iberdrola e imprensa. A vaga é da unidade <b>Concert Lab</b>, o laboratório de inovação do grupo.</p>
+  <ul class="legend">
+    <li><i style="background:var(--c0)"></i><div><b>Quem é.</b> <span>Grupo de Tecnologia da Operação (TO) com mais de 40 anos, sede em Belo Horizonte. Atua em energia, aeroespacial e indústria, com quatro unidades: Engenharia, Lab, Space e thingable! (IoT).</span></div></li>
+    <li><i style="background:var(--c1)"></i><div><b>Concert Lab (a sua unidade).</b> <span>Berço do grupo, cuida de PD&amp;I e produtos: mais de 65 projetos de PD&amp;I e mais de 15 produtos no mercado, segundo o site. Também oferece Squad as a Service.</span></div></li>
+    <li><i style="background:var(--c2)"></i><div><b>VERA (IA com imagens).</b> <span>Monitora vegetação perto da rede elétrica com satélite, câmeras e IA. Surgiu de um projeto de PD&amp;I com a Energisa em 2015; a Energisa informou 23 mil árvores cadastradas desde 2024. A Cemig também usa ferramentas de imagem da Concert.</span></div></li>
+    <li><i style="background:var(--c3)"></i><div><b>xOMNI IA.</b> <span>Copiloto de inteligência artificial para operadores de centros de controle de energia. O xOMNI, o sistema supervisório, existe desde 1998 e é a base histórica da empresa.</span></div></li>
+    <li><i style="background:var(--c4)"></i><div><b>Reconhecimento.</b> <span>A plataforma Imagery venceu um desafio de inovação da Iberdrola e da Neoenergia em 2021.</span></div></li>
+    <li><i style="background:var(--c5)"></i><div><b>Cultura.</b> <span>Autonomia com responsabilidade, feedback constante e trabalho em equipe. Valores: resultado, desafio, foco no cliente e ter as melhores pessoas. Oferece home office, jornada flexível, mentoria e a plataforma de cursos Concert Academy.</span></div></li>
+  </ul>
+  <p class="sub"><b>Cuidado:</b> o site diz que a Concert participou do primeiro lançamento comercial de foguete a partir do Brasil, em dezembro de 2025, mas a imprensa registrou que o foguete explodiu em voo. Se citar, fale em participação na operação, nunca em sucesso da missão.</p>
+
+  <h3 class="sub-h">Estudo rápido para as perguntas técnicas</h3>
+  <p class="sub">Só o básico que a vaga pede. Diga apenas o que você realmente conhece e deixe claro o que está aprendendo.</p>
+  <ul class="legend">
+    <li><i style="background:var(--c0)"></i><div><b>Lógica de programação.</b> <span>Variáveis, condicionais, laços, listas e funções. Esteja pronta para explicar em voz alta como resolveria um problema simples, passo a passo.</span></div></li>
+    <li><i style="background:var(--c1)"></i><div><b>Git.</b> <span>clone, branch, commit, push, pull request e merge. Saiba dizer o que é um conflito e como se resolve.</span></div></li>
+    <li><i style="background:var(--c2)"></i><div><b>Angular.</b> <span>Componentes, templates, data binding, serviços e rotas. Se o seu contato com Angular foi pequeno, diga quanto e o que você já montou.</span></div></li>
+    <li><i style="background:var(--c3)"></i><div><b>Rotulação de dados.</b> <span>É marcar os dados com a resposta correta (por exemplo, o que há em cada imagem) para o modelo aprender. A qualidade e a consistência dos rótulos afetam diretamente o resultado do modelo.</span></div></li>
+    <li><i style="background:var(--c4)"></i><div><b>Diferenciais.</b> <span>SQL você já estuda. Python, C#/.NET e nuvem: cite só o que é verdade e diga que quer aprender.</span></div></li>
+  </ul>
+
+  <h3 class="sub-h">Perguntas prováveis e respostas-modelo</h3>
+  <p class="sub">Abra cada pergunta. A resposta-modelo usa só o que já está no seu perfil. Troque os colchetes por fatos reais e escreva a sua versão na caixa. Uma resposta curta e verdadeira vale mais do que uma resposta bonita que você não sustenta.</p>
+  <div id="cvQA"></div>
+
+  <div class="iv-grid iv-grid2">
+  <div class="iv-col">
+  <h3 class="sub-h">Perguntas para você fazer</h3>
+  <p class="sub">Leve de três a quatro. Quem pergunta bem mostra interesse real.</p>
+  <ul class="legend">
+    <li><i style="background:var(--c2)"></i><div><b>Como é o dia a dia de quem começa na rotulação de imagens</b> <span>e em quanto tempo costuma haver a evolução para o desenvolvimento full stack?</span></div></li>
+    <li><i style="background:var(--c2)"></i><div><b>Quem acompanha o estagiário</b> <span>e como funciona o trabalho remoto no dia a dia (reuniões, ferramentas, acompanhamento)?</span></div></li>
+    <li><i style="background:var(--c2)"></i><div><b>Como é o desafio técnico</b> <span>e que conteúdo vale revisar antes dele?</span></div></li>
+    <li><i style="background:var(--c2)"></i><div><b>Existe flexibilidade nas 6 horas diárias</b> <span>para quem tem aulas na faculdade?</span></div></li>
+    <li><i style="background:var(--c2)"></i><div><b>Quais são as próximas etapas</b> <span>e em quanto tempo costumo ter um retorno?</span></div></li>
+  </ul>
+  </div>
+  <div class="iv-col">
+  <h3 class="sub-h">Anotações da entrevista</h3>
+  <p class="sub">Depois da conversa, escreva o que foi perguntado, o que respondeu bem e o que melhorar. Isso treina a próxima.</p>
+  <textarea class="ivnotes" id="cvNotes" aria-label="Anotações da entrevista Concert" placeholder="Perguntas que apareceram, o que foi bem, o que melhorar, próximos passos..."></textarea>
+  </div>
+  </div>
+
+  <script src="js/entrevista-concert.js"></script>
+  </div>
+  <div class="ivsub" data-sub="grownt" role="tabpanel" hidden>
+  <div class="ivcard">
+    <b>Product Designer (Estagiária) · Grownt Tech</b>
+    <span><b style="font-size:1rem">Terça, 10 nov 2026, 10:00 às 10:30</b> (horário de Brasília)</span>
+    <span>Microsoft Teams · Com Vanessa Santos · 30 minutos</span>
+  </div>
+
+  <div class="iv-grid">
+  <div class="iv-col">
+  <h3 class="sub-h">O que esperar</h3>
+  <p class="sub">Uma primeira conversa de 30 minutos costuma ser de triagem: a pessoa quer saber quem você é, por que escolheu a vaga, se o seu perfil combina com o time e se a logística funciona (horário, carga, remoto). Em geral não há teste técnico nesta fase. Esteja pronta para três coisas: se apresentar em até 90 segundos, contar um projeto ou uma experiência de design com começo, meio e fim, e fazer boas perguntas no final.</p>
+
+  <h3 class="sub-h">Seu plano de treino até terça</h3>
+  <ol class="order">
+    <li><b>Quinta e sexta: pesquisar e escrever.</b> <span>30 minutos no site, LinkedIn e redes da Grownt Tech, e na vaga. Preencha os colchetes das respostas abaixo.</span></li>
+    <li><b>Sábado: treinar em voz alta.</b> <span>Grave o áudio do celular com a apresentação e duas respostas. Ouça e corte o que ficou longo.</span></li>
+    <li><b>Domingo: simulação completa.</b> <span>Peça para alguém fazer o papel da Vanessa, com 30 minutos no cronômetro e perguntas fora de ordem.</span></li>
+    <li><b>Segunda: revisão leve.</b> <span>Releia só a apresentação, o projeto principal e as suas perguntas. Durma cedo.</span></li>
+    <li><b>Terça de manhã: teste técnico.</b> <span>Entre no Teams 15 minutos antes e confira câmera, áudio, internet e luz.</span></li>
+  </ol>
+
+  </div>
+  <div class="iv-col iv-side">
+  <h3 class="sub-h">Checklist</h3>
+  <ul class="ivlist" id="ivChecks"></ul>
+
+  </div>
+  </div>
+
+  <h3 class="sub-h">Perguntas prováveis e respostas-modelo</h3>
+  <p class="sub">Abra cada pergunta. A resposta-modelo usa só o que já está no seu perfil. Troque os colchetes por fatos reais e escreva a sua versão na caixa. Uma resposta curta e verdadeira vale mais do que uma resposta bonita que você não sustenta.</p>
+  <div id="ivQA"></div>
+
+  <div class="iv-grid iv-grid2">
+  <div class="iv-col">
+  <h3 class="sub-h">Perguntas para você fazer à Vanessa</h3>
+  <p class="sub">Leve de três a quatro. Quem pergunta bem mostra interesse real.</p>
+  <ul class="legend">
+    <li><i style="background:var(--c2)"></i><div><b>Como é o time de design</b> <span>e com quem eu trabalharia no dia a dia?</span></div></li>
+    <li><i style="background:var(--c2)"></i><div><b>O que se espera de mim nos primeiros 30 dias</b> <span>e como é o acompanhamento de quem está começando?</span></div></li>
+    <li><i style="background:var(--c2)"></i><div><b>Em quais produtos ou projetos</b> <span>uma estagiária de design costuma atuar?</span></div></li>
+    <li><i style="background:var(--c2)"></i><div><b>Como designers e desenvolvedores trabalham juntos</b> <span>aqui? Existe handoff, revisão ou squad?</span></div></li>
+    <li><i style="background:var(--c2)"></i><div><b>Quais são as próximas etapas</b> <span>e em quanto tempo costumo ter um retorno?</span></div></li>
+  </ul>
+
+  </div>
+  <div class="iv-col">
+  <h3 class="sub-h">Anotações da entrevista</h3>
+  <p class="sub">Depois da conversa, escreva o que foi perguntado, o que respondeu bem e o que melhorar. Isso treina a próxima.</p>
+  <textarea class="ivnotes" id="ivNotes" aria-label="Anotações da entrevista" placeholder="Perguntas que apareceram, o que foi bem, o que melhorar, próximos passos..."></textarea>
+  </div>
+  </div>
+
+  <script src="js/entrevista-grownt.js"></script>
+  </div>
+  <script src="js/entrevistas-subabas.js"></script>
+  </section>
+
+
+  <section class="tabpanel" data-tab="rotina">
+  <h2 class="section-title">Seu dia de estudo</h2>
+  <p class="sub">De segunda a sábado, cerca de 2h20 por dia (14 h por semana). Se a faculdade apertar, reduza todos os blocos na mesma proporção e mantenha todos os dias.</p>
+  <div class="day" role="img" aria-label="Divisão do dia: inglês 20 minutos, estudo novo 60, prática 30, candidaturas 30">
+    <div style="flex:20;background:var(--c5)">20</div>
+    <div style="flex:60;background:var(--c0)">60 min</div>
+    <div style="flex:30;background:var(--c1)">30</div>
+    <div style="flex:30;background:var(--c4)">30</div>
+  </div>
+  <ul class="legend">
+    <li><i style="background:var(--c5)"></i><div><b>Inglês, 20 min.</b> <span>Documentação, vídeo sem legenda ou pitch em voz alta.</span></div></li>
+    <li><i style="background:var(--c0)"></i><div><b>Estudo novo, 60 min.</b> <span>O tema da semana da etapa atual.</span></div></li>
+    <li><i style="background:var(--c1)"></i><div><b>Prática, 30 min.</b> <span>Escrever código no projeto ou resolver exercícios.</span></div></li>
+    <li><i style="background:var(--c4)"></i><div><b>Candidaturas, 30 min.</b> <span>Enviar, atualizar a planilha e mandar mensagens.</span></div></li>
+  </ul>
+  <p class="sub" style="margin-top:14px">Domingo, 15 minutos: atualizar a planilha, marcar as estações concluídas e escolher o foco da semana.</p>
+
+  <h2 class="section-title">Se o resultado não vem</h2>
+  <p class="sub">Revise a cada duas semanas. Cada sintoma aponta para um ajuste diferente.</p>
+  <div class="table">
+    <div class="vrow">
+      <div><small>Sintoma</small><b>Cerca de 40 candidaturas e nenhuma resposta</b></div>
+      <div><small>Provável causa</small>Currículo, LinkedIn ou vagas altas demais</div>
+      <div><small>Ajuste</small>Projetos no topo do currículo, palavras da vaga no texto e mais candidaturas a estágio, QA e suporte</div>
+    </div>
+    <div class="vrow">
+      <div><small>Sintoma</small><b>Respostas, mas ninguém passa da primeira conversa</b></div>
+      <div><small>Provável causa</small>Apresentação e inglês falado</div>
+      <div><small>Ajuste</small>Treinar o pitch em voz alta, gravar e simular entrevistas comportamentais</div>
+    </div>
+    <div class="vrow">
+      <div><small>Sintoma</small><b>Passa de fase, mas não fecha</b></div>
+      <div><small>Provável causa</small>Parte técnica</div>
+      <div><small>Ajuste</small>Mais exercícios de lógica e treino para explicar as decisões do seu projeto</div>
+    </div>
+  </div>
+
+  </section>
+
+  </div>
+
+  <div class="foot">
+    <span>Marcações salvas só neste navegador e neste aparelho.</span>
+    <button class="reset" id="resetBtn" type="button">Limpar marcações</button>
+  </div>
+
+</div>
+
+</div>
+<nav class="bnav" id="bnav"></nav>
+<div id="modal"></div>
+
+<script src="js/mapa.js"></script>
+<script src="js/agenda.js"></script>
+<script src="js/backup.js"></script>
+</body>
+</html>
