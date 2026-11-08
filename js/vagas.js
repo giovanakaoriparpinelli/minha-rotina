@@ -2,30 +2,12 @@
     var STAT = ['Enviada', 'Em análise', 'Entrevista RH', 'Teste técnico', 'Entrevista técnica', 'Oferta', 'Encerrada'];
     var RET = ['Aguardando', 'Positivo', 'Negativo', 'Sem retorno'];
     var K = 'mapa-candidaturas-v1', MK = 'mapa-candidaturas-meta-v1';
-    var SEED = [
-      ['Instituto de Pesquisas Eldorado', 'Estágio em Desenvolvimento de Software / Data Mining', '2026-11-22', 'https://institutoeldorado.gupy.io/candidates/applications/772104817', 'Encerrada', 'Negativo'],
-      ['BeFly', 'Estágio de Suporte - Tech Travel - Befly', '2027-01-31', 'https://befly.gupy.io/candidates/applications/772101750', 'Em análise', 'Aguardando'],
-      ['Instituto de Pesquisas Eldorado', 'Estágio em Design UI/UX', '2026-12-19', 'https://institutoeldorado.gupy.io/candidates/applications/771664314', 'Em análise', 'Aguardando'],
-      ['V(dev)', 'Visagio Talentos - Estágio: Desenvolvedor(a) de Software', '2026-11-02', 'https://vdev.gupy.io/candidates/applications/772117384/steps/4358441984', 'Em análise', 'Aguardando'],
-      ['IFood', 'Programa de Estágio GenAI 2027', '2026-11-02', 'https://carreiras.ifood.com.br/gen-ai/', 'Em análise', 'Aguardando'],
-      ['Letras', 'Talentos em Tecnologia', '2026-11-02', 'https://letras.gupy.io/candidates/applications/772246440', 'Em análise', 'Aguardando'],
-      ['Lima Consulting', 'Estágio em Martech - Implementação & Operação de Plataforma', '2026-11-04', 'e-mail', 'Em análise', 'Aguardando'],
-      ['Gröwnt', 'Product Designer (Estagiário)', '2026-11-04', 'e-mail', 'Em análise', 'Aguardando']
-    ];
+    var SEED = [];
     var seq = 0;
     function nid() { seq++; return 'c' + Date.now().toString(36) + seq; }
     var rows = null, meta = 30, lastDel = null, filt = '';
     try { var s = JSON.parse(localStorage.getItem(K) || 'null'); if (Array.isArray(s)) rows = s; } catch (e) { rows = null; }
     if (!rows) rows = SEED.map(function (r) { return { id: nid(), e: r[0], v: r[1], d: r[2], l: r[3], s: r[4], r: r[5] }; });
-    try {
-      if (!localStorage.getItem('mapa-cand-concert-v1')) {
-        if (!rows.some(function (r) { return /concert/i.test(r.e); })) {
-          rows.push({ id: nid(), e: 'Concert Technologies', v: '025/2026 (LAB) - Estágio em Inteligência Artificial e Desenvolvimento Full Stack', d: '2026-11-01', l: '', s: 'Entrevista RH', r: 'Positivo' });
-          localStorage.setItem(K, JSON.stringify(rows));
-        }
-        localStorage.setItem('mapa-cand-concert-v1', '1');
-      }
-    } catch (e) {}
     try { var m = parseInt(localStorage.getItem(MK), 10); if (m > 0) meta = m; } catch (e) {}
     function save() { try { localStorage.setItem(K, JSON.stringify(rows)); } catch (e) {} }
     function p2(n) { return (n < 10 ? '0' : '') + n; }
