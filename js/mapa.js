@@ -40,7 +40,7 @@ const STAGES = [
     tasks: [
       ["Montar o currículo de 1 página", "Projetos no topo e experiência em processos, mapeamento e UX em destaque."],
       ["Criar a versão do currículo em inglês", "Vagas como Westpoint e KIS pedem inglês explicitamente."],
-      ["Escrever uma mensagem modelo para recrutadores", "Os modelos prontos estão em <a href='#textos'>Textos para as inscrições</a>, com botão de copiar."],
+      ["Escrever uma mensagem modelo para recrutadores", "Escreva uma versão curta, com quem você é, o que estuda e o que procura."],
       ["Enviar as primeiras 10 candidaturas", "Estágio, QA, suporte técnico e analista de sistemas, além de dev."],
       ["Enviar 30 candidaturas no total", "Meta: 5 a 10 por dia útil, personalizando a mensagem."],
       ["Mandar mensagem a 10 egressos e professores da UTFPR"],
@@ -182,7 +182,7 @@ function refresh() {
 build(); sync(); refresh();
 if (window.estudosInit) window.estudosInit(STAGES);
 
-var TABS = ['inicio', 'etapas', 'estudos', 'mercado', 'vagas', 'textos', 'entrevistas', 'rotina'];
+var TABS = ['inicio', 'etapas', 'estudos', 'mercado', 'vagas', 'rotina'];
 var curStage = null;
 function firstOpen() {
   var its = allItems();

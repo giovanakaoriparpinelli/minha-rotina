@@ -4,7 +4,7 @@ Planner pessoal em HTML, CSS e JavaScript puros, sem build e sem dependências. 
 
 - **Hoje, Semana e Hábitos:** agenda diária com blocos de horário, hábitos e metas.
 - **Devocional:** aba de acompanhamento da leitura.
-- **Desenvolvimento:** mapa de estudos em etapas, vagas-alvo, textos prontos e preparo para entrevistas (uma sub-aba por entrevista).
+- **Desenvolvimento:** mapa de estudos em etapas, vagas-alvo e rotina de estudo.
 
 Tudo o que você marca e escreve fica salvo no próprio navegador (`localStorage`). Não há servidor nem banco de dados.
 
@@ -18,10 +18,6 @@ Tudo o que você marca e escreve fica salvo no próprio navegador (`localStorage
 ├── js/
 │   ├── estudos.js             # aba Estudos
 │   ├── vagas.js               # aba Vagas-alvo (planilha de candidaturas)
-│   ├── textos.js              # aba Textos
-│   ├── entrevista-concert.js  # entrevista Concert: checklist, perguntas e respostas
-│   ├── entrevista-grownt.js   # entrevista Grownt: checklist, perguntas e respostas
-│   ├── entrevistas-subabas.js # troca entre as sub-abas de entrevistas
 │   ├── mapa.js                # mapa Desenvolvimento: etapas, progresso e navegação por abas
 │   ├── agenda.js              # agenda (Hoje, Semana, Hábitos, Devocional)
 │   └── backup.js              # botão Dados: exportar e importar o progresso
@@ -57,8 +53,6 @@ Para publicar como site, em **Settings > Pages**, escolha **Source: GitHub Actio
 | O que mudar | Onde |
 | --- | --- |
 | Blocos de horário da agenda e tarefas de datas específicas | `js/agenda.js` (`defTasks()` e `newTasks()`) |
-| Perguntas, respostas-modelo e checklist de uma entrevista | `js/entrevista-*.js` (listas `CHECKS` e `QA`) |
-| Nova entrevista | copie `entrevista-concert.js`, o bloco `data-sub="concert"` no `index.html` e o botão em `.ivtabs` |
 | Vagas iniciais | `js/vagas.js` (lista `SEED`) |
 | Cores e tipografia | variáveis no topo de `css/styles.css` |
 
